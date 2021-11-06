@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var id = ViewBag.id;
+}
+
+@model List<Book>
+
+<style>
+    th {
+        font-weight: bold;
+    }
+</style>
+
+<h2>List of Book</h2>
+<hr/>
+<h3>@id</h3>
+
+<table style="border-style: solid" border="1">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Id</td>
+            <td>@book.Title</td>
+            <td>@book.Year</td>
+            <td>@book.Description</td>
+            <td><a href="~/Home/Delete/@book.Id">Delete</a></td>
+        </tr>
+    }
+</table>
